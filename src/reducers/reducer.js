@@ -1,5 +1,7 @@
 let defaultState = {
-    laundromats : []
+    laundromats : {
+        data: []
+    }
 }
 
 export default function reducer(state = defaultState, action) {

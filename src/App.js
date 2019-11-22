@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux'
-
 import './App.css';
+import MainContainer from './containers/MainContainer';
 
 function App() {
   const laundromats = useSelector(state => state.laundromats)
@@ -17,9 +17,7 @@ function App() {
 
   console.log(laundromats)
   return (
-    <div className="App">
-      
-    </div>
+    <MainContainer />
   )
 }
 
