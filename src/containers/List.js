@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux'
 
 export default function List(){
-    const laundromats = useSelector(state => state.laundromats.data)
+    const laundromats = useSelector(state => state.laundromats)
 
     const mappedLaundromats = laundromats.map(laundromat => {
         return (<li>

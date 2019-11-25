@@ -1,14 +1,16 @@
 let defaultState = {
     user: {},
-    laundromats : {
-        data: []
-    }
+    laundromats : []
 }
 
 export default function reducer(state = defaultState, action) {
     switch(action.type) {
         case 'SET_USER' :
-            return action.data
+            
+            return {
+                ...state,
+                user: action.payload 
+            }
 
         case 'CLEAR_USER': 
             return {
@@ -19,7 +21,7 @@ export default function reducer(state = defaultState, action) {
         case 'LOAD_LAUNDROMATS' :
             return {
                 ...state,
-                laundromats: action.data
+                laundromats: action.payload
             }
             
         default:

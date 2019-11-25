@@ -2,7 +2,7 @@
 
 const BASE_URL = 'http://localhost:3000';
 const USERS_URL = BASE_URL + '/users';
-const PERSIST_URL = BASE_URL + '/persist';
+const PERSIST_URL = BASE_URL + '/auth';
 const LOGIN_URL = BASE_URL + '/login';
 const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
@@ -17,16 +17,29 @@ const clearUserAction = () => ({
   type: 'CLEAR_USER'
 });
 
+const setLaundromats = laundromats => ({
+  type: 'LOAD_LAUNDROMATS',
+  payload: laundromats
+})
+
 // Fetch
 
-const newUserToDB = userObj => dispatch => {
+const getLaundromats = () => dispatch => {
+  fetch("http://localhost:3000/providers")
+  .then(res => res.json())
+  .then((response) => {
+    dispatch(setLaundromats(response.data))
+  })
+}
+
+const newUserToDB = (userObj) => dispatch => {
   const config = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(userObj)
-  };
+  }
   fetch(USERS_URL, config)
     .then(r => r.json())
     .then(data => {
@@ -38,7 +51,7 @@ const newUserToDB = userObj => dispatch => {
 const deleteUserFromDB = userId => dispatch => {
   const config = {
     method: 'DELETE'
-  };
+  }
   fetch(SPECIFIC_USER_URL(userId), config).then(r => {
     dispatch(clearUserAction())
     localStorage.clear()
@@ -52,7 +65,7 @@ const loginUserToDB = userCredentials => dispatch => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(userCredentials)
-  };
+  }
   fetch(LOGIN_URL, config)
     .then(r => r.json())
     .then(data => {
@@ -85,5 +98,6 @@ export default {
   deleteUserFromDB,
   loginUserToDB,
   persistUser,
-  logoutUser
+  logoutUser,
+  getLaundromats
 }

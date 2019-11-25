@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import userActions from '..redux/actions'
+import userActions from '../redux/actions'
 
 const Login = props => {
     // initialize dispatch 
@@ -33,7 +33,7 @@ const Login = props => {
 
             <input
                 type="text"
-                name="username"
+                name="name"
                 value={name}
                 onChange={handleChange}
                 placeholder="name"
