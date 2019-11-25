@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux'
 
 const Home = () => {
     const name = useSelector(state => state.name)
-    
+
     const text = name ? (
-        <h1 {name} are currently logged in />
+        <h1>{name} are currently logged in </h1>
     ) :
     (
-        <h1 no one is logged in />
+        <h1> no one is logged in</h1>
     )
 
     return (
