@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import userActions from '..redux/actions'
 
-export const Login = props => {
+const Login = props => {
     // initialize dispatch 
     const dispatch = useDispatch()
 
@@ -51,3 +51,5 @@ export const Login = props => {
         </form>
     )
 }
+
+export default Login
