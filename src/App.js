@@ -8,8 +8,8 @@ import Nav from './components/Nav'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 const App = () => {
-
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(userActions.persistUser())
     dispatch(userActions.getLaundromats())
@@ -22,21 +22,7 @@ const App = () => {
       <Routes />
     </Router>
   )
-  // const laundromats = useSelector(state => state.laundromats)
-  // const dispatch = useDispatch()
-
-  // useEffect( () => {
-  //   fetch("http://localhost:3000/providers")
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     dispatch({ type: 'LOAD_LAUNDROMATS', data: data})
-  //   })
-  // }, [dispatch])
-
-  // console.log(laundromats)
-  // return (
-  //   <MainContainer />
-  // )
+  
 }
 
 export default App
