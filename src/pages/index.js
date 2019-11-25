@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from '../App';
 import * as serviceWorker from '../serviceWorker';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import reducer  from '../reducers/reducer'
+import thunk from 'redux-thunk'
+import reducer  from '../redux/reducer'
 import Signup from './Signup'
 import Login from './Login'
 import Home from './Home'
@@ -16,7 +17,7 @@ export default {
     Home
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
     <Provider store={store}> 
