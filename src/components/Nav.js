@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const ServiceProviderCmp = () => {
+
+export const Nav = () => {
     return (
         <div>
             

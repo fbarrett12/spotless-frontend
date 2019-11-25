@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ServiceProviderCmp = () => {
+export const Login = () => {
     return (
         <div>
             
