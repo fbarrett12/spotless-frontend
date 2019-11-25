@@ -24,7 +24,7 @@ export const Login = props => {
     }
 
     // destructure keys from local state to use in the form 
-    const { username, password } = loginForm
+    const { name, password } = loginForm
 
     return (
         <form onSubmit={handleSubmit}>
@@ -34,9 +34,9 @@ export const Login = props => {
             <input
                 type="text"
                 name="username"
-                value={username}
+                value={name}
                 onChange={handleChange}
-                placeholder="Username"
+                placeholder="name"
             />
 
             <input
