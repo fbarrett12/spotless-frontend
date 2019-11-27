@@ -9,13 +9,15 @@ const Signup = props => {
    // set up the local state with useState hook
    const [signupForm, setSignupForm] = useState({
        name: '',
-       password: ''
+       password: '',
+       role: "Customer"
    })
 
    // controlled form functions
    const handleSubmit = e => {
        e.preventDefault()
-       dispatch(userActions.newUserToDB(signupForm))
+       
+       dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/couriers"))
        props.history.push('/')
    }
 
@@ -24,7 +26,7 @@ const Signup = props => {
    }
 
    // destructure keys from local state to use in the form 
-   const { name, password } = signupForm
+   const { name, password, role } = signupForm
 
    return (
        <form onSubmit={handleSubmit}>
@@ -45,7 +47,32 @@ const Signup = props => {
                value={password}
                onChange={handleChange}
                placeholder="Password"
-           />
+           /> <br/>
+
+          <input 
+            type="radio"
+            name="role"
+            value="Customer"
+            checked={role === "Customer" ? "checked" : "" }
+            onChange={handleChange}
+          /> Customer <br></br>
+
+          <input 
+            type="radio"
+            name="role"
+            value="Courier"
+            checked={role === "Courier" ? "checked" : "" }
+            onChange={handleChange}
+          /> Courier <br></br>
+
+          <input 
+            type="radio"
+            name="role"
+            value="Service Provider"
+            checked={role === "Service Provider" ? "checked" : "" }
+            onChange={handleChange}
+          /> Service Provider <br></br>
+
            <input type="submit" />
 
        </form>

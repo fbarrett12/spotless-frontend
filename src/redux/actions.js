@@ -32,7 +32,7 @@ const getLaundromats = () => dispatch => {
   })
 }
 
-const newUserToDB = (userObj) => dispatch => {
+const newUserToDB = (userObj, url) => dispatch => {
   const config = {
     method: 'POST',
     headers: {
@@ -40,7 +40,7 @@ const newUserToDB = (userObj) => dispatch => {
     },
     body: JSON.stringify(userObj)
   }
-  fetch(USERS_URL, config)
+  fetch(url, config)
     .then(r => r.json())
     .then(data => {
       dispatch(setUserAction(data.user))
