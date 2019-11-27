@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
+import './App.css'
+import userActions from './redux/actions'
+//import MainContainer from './containers/MainContainer'
+import Routes from './Routes'
+import Nav from './components/Nav'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-import './App.css';
+const App = () => {
+  const dispatch = useDispatch()
 
-function App() {
+  useEffect(() => {
+    dispatch(userActions.persistUser())
+    dispatch(userActions.getLaundromats())
+  }, [dispatch])
+
+
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <Nav />
+      <Routes />
+    </Router>
   )
+  
 }
 
-export default App;
+export default App
