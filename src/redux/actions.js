@@ -69,7 +69,7 @@ const loginUserToDB = userCredentials => dispatch => {
   fetch(LOGIN_URL, config)
     .then(r => r.json())
     .then(data => {
-      dispatch(setUserAction(data.user))
+      dispatch(setUserAction(data.token))
       localStorage.setItem('token', data.token)
     })
 }
