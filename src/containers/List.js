@@ -12,12 +12,10 @@ export default function List(){
     })
     console.log(laundromats)
 
-    if (localStorage.role !== "Customer" || "undefined") {
+    if (localStorage.role !== "User") {
         return "something else"
     } else{
         return (
-
-       
             <ul>
                {mappedLaundromats} 
             </ul>

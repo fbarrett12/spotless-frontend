@@ -71,7 +71,7 @@ const loginUserToDB = userCredentials => dispatch => {
   fetch(LOGIN_URL, config)
     .then(r => r.json())
     .then(data => {
-      dispatch(setUserAction(data.token))
+      dispatch(setUserAction(data))
       localStorage.setItem('token', data.token)
       localStorage.setItem('role', data.role)
     })
@@ -87,6 +87,7 @@ const persistUser = () => dispatch => {
   fetch(PERSIST_URL, config)
     .then(r => r.json())
     .then(userInstance => {    
+      
       dispatch(setUserAction(userInstance))
       localStorage.setItem('role', userInstance.role)
     })
