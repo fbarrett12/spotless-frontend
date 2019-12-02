@@ -3,8 +3,13 @@ import { useSelector,useDispatch } from 'react-redux'
 import List from './List'
 
 export default function MainContainer() {
-    return (
-        <List />
-    )
+
+    
+       return <List />
+    
+    
+
+    // return (
+    // )
 }
 

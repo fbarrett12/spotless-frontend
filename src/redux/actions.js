@@ -45,6 +45,7 @@ const newUserToDB = (userObj, url) => dispatch => {
     .then(data => {
       dispatch(setUserAction(data.user))
       localStorage.setItem('token', data.token)
+      localStorage.setItem('role', data.role)
     })
 }
 
@@ -57,6 +58,7 @@ const deleteUserFromDB = userId => dispatch => {
     localStorage.clear()
   })
 }
+
 
 const loginUserToDB = userCredentials => dispatch => {
   const config = {
@@ -71,6 +73,7 @@ const loginUserToDB = userCredentials => dispatch => {
     .then(data => {
       dispatch(setUserAction(data.token))
       localStorage.setItem('token', data.token)
+      localStorage.setItem('role', data.role)
     })
 }
 
@@ -83,8 +86,9 @@ const persistUser = () => dispatch => {
   }
   fetch(PERSIST_URL, config)
     .then(r => r.json())
-    .then(userInstance => {
-      dispatch(setUserAction(userInstance));
+    .then(userInstance => {    
+      dispatch(setUserAction(userInstance))
+      localStorage.setItem('role', userInstance.role)
     })
 }
 

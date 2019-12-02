@@ -13,12 +13,24 @@ const Signup = props => {
        role: "Customer"
    })
 
+   // dynamically sets sign up routes 
+//    let submitRoute = signupForm.role.toLowerCase
+//    console.log(submitRoute)
+
    // controlled form functions
    const handleSubmit = e => {
        e.preventDefault()
        
-       dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/couriers"))
-       props.history.push('/')
+       if (signupForm.role === "Courier") {
+           dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/couriers"))
+           props.history.push('/')
+       } else if (signupForm.role === "Customer") {
+        dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/users"))
+        props.history.push('/')
+       } else if (signupForm.role === "Service Provider") {
+        dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/providers"))
+        props.history.push('/')
+       }
    }
 
    const handleChange = e => {

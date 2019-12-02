@@ -17,6 +17,15 @@ export default function reducer(state = defaultState, action) {
                 ...state,
                 user: {}
             }
+        
+        case 'SET_ROLE':
+            return {
+                user: {
+
+                    ...state,
+                    role: action.payload
+                }
+            }
 
         case 'LOAD_LAUNDROMATS' :
             return {
