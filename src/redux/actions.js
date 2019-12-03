@@ -28,6 +28,7 @@ const getLaundromats = () => dispatch => {
   fetch("http://localhost:3000/providers")
   .then(res => res.json())
   .then((response) => {
+    console.log(response)
     dispatch(setLaundromats(response.data))
   })
 }
@@ -43,7 +44,7 @@ const newUserToDB = (userObj, url) => dispatch => {
   fetch(url, config)
     .then(r => r.json())
     .then(data => {
-      dispatch(setUserAction(data.user))
+      dispatch(setUserAction(data))
       localStorage.setItem('token', data.token)
       localStorage.setItem('role', data.role)
     })
@@ -71,6 +72,7 @@ const loginUserToDB = userCredentials => dispatch => {
   fetch(LOGIN_URL, config)
     .then(r => r.json())
     .then(data => {
+      console.log(data)
       dispatch(setUserAction(data))
       localStorage.setItem('token', data.token)
       localStorage.setItem('role', data.role)
@@ -87,7 +89,6 @@ const persistUser = () => dispatch => {
   fetch(PERSIST_URL, config)
     .then(r => r.json())
     .then(userInstance => {    
-      
       dispatch(setUserAction(userInstance))
       localStorage.setItem('role', userInstance.role)
     })

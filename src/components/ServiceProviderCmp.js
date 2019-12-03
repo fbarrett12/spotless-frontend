@@ -1,9 +1,15 @@
 import React from 'react'
 
-export const ServiceProviderCmp = () => {
+const ServiceProviderCmp = (props) => {
+    const laundromat = props.laundromats
+
+    
+    
     return (
-        <div>
-            
+        <div className='laundry-list'>
+            {laundromat.attributes.name}
         </div>
     )
 }
+
+export default ServiceProviderCmp

@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.app {
+  display: flex;
+}
+
+.sidebar-container {
+  min-height: 100vh;
+  background-color: lightgray;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.laundry-list {
+  border-radius: 1rem 3rem 2rem;
+  background: rgb(72, 133, 190);
+  padding: 1.25rem; 
+  width: 12.5rem;
+  height: 9.375rem; 
+  margin: 1.25rem;
+}
+
+ul {
+  list-style-type: none;
+  height: 26rem;
+  overflow: auto;
+}
