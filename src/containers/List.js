@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { useSelector,useDispatch } from 'react-redux'
+import React from 'react';
+import { useSelector} from 'react-redux'
 import ServiceProviderCmp from '../components/ServiceProviderCmp'
 
-export default function List(){
+export default function List(props){
     const laundromats = useSelector(state => state.laundromats)
     console.log(laundromats)
     const mappedLaundromats = laundromats.map(laundromat => {
         return(
-        <ServiceProviderCmp laundromats={laundromat} />
+        <ServiceProviderCmp laundromats={laundromat} onClick={props.onClick}/>
         // return (<li>
         //     {laundromat.attributes.name}
         // </li>)

@@ -2,6 +2,7 @@
 
 const BASE_URL = 'http://localhost:3000';
 const USERS_URL = BASE_URL + '/users';
+const LOAD_URL = BASE_URL + '/loads'
 const PERSIST_URL = BASE_URL + '/auth';
 const LOGIN_URL = BASE_URL + '/login';
 const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
@@ -15,11 +16,25 @@ const setUserAction = userObj => ({
 
 const clearUserAction = () => ({
   type: 'CLEAR_USER'
-});
+})
+
+const clearSelectedLaundromat = () => ({
+  type: 'CLEAR_SELECTED_LAUNDROMAT'
+})
 
 const setLaundromats = laundromats => ({
   type: 'LOAD_LAUNDROMATS',
   payload: laundromats
+})
+
+const selectLaundromat = laundromat => ({
+  type: 'SELECT_LAUNDROMAT',
+  payload: laundromat
+})
+
+const createLoad = load => ({
+  type: 'CREATE_LOAD',
+  payload: load
 })
 
 // Fetch
@@ -99,11 +114,30 @@ const logoutUser = () => dispatch => {
   localStorage.clear();
 }
 
+const setLoadToDB = formInfo => dispatch => {
+  debugger
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formInfo)
+  }
+  fetch(LOAD_URL, config)
+  .then(res => res.json())
+  .then(data => {
+    dispatch(createLoad(data))
+  })
+}
+
 export default {
   newUserToDB,
   deleteUserFromDB,
   loginUserToDB,
   persistUser,
   logoutUser,
-  getLaundromats
+  getLaundromats,
+  selectLaundromat,
+  clearSelectedLaundromat,
+  setLoadToDB
 }

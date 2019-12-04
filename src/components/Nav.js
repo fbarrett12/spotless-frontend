@@ -36,12 +36,12 @@ const Nav = () => {
       return (
         <>
         <nav className="sidebar-container">
-          <Link to="/">Home</Link>
-          <Link to="/signup">Signup</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/" onClick={handleLogout}>
-            Logout
-          </Link>
+          <div className="pure-menu-list">
+          <Link to="/" className="pure-menu-link">Home</Link>
+          <Link to="/signup" className="pure-menu-link">Signup</Link>
+          <Link to="/login" className="pure-menu-link">Login</Link>
+          <Link to="/" onClick={handleLogout} className="pure-menu-link">Logout</Link>
+          </div>
         </nav>
     
       
