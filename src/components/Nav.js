@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import userActions from '../redux/actions'
 import SidebarIcon from './SidebarIcon'
 
-
 const Nav = () => {
   const dispatch = useDispatch()
   const handleLogout = () => {
@@ -22,7 +21,7 @@ const Nav = () => {
         isOpen: !isOpen.isOpen}
       )
   }
-  
+
   console.log(isOpen)
   
     if (isOpen.isOpen === false){
@@ -35,25 +34,23 @@ const Nav = () => {
     } else {
       return (
         <>
-        <nav className="sidebar-container">
-          <div className="pure-menu-list">
-          <Link to="/" className="pure-menu-link">Home</Link>
-          <Link to="/signup" className="pure-menu-link">Signup</Link>
-          <Link to="/login" className="pure-menu-link">Login</Link>
-          <Link to="/" onClick={handleLogout} className="pure-menu-link">Logout</Link>
-          </div>
-        </nav>
-    
-      
+          <nav className="sidebar-container">
+            <div className="pure-menu-list">
+              <Link to="/" className="pure-menu-link">Home</Link>
+              <Link to="/history" className="pure-menu-link">History</Link>
+              <Link to="/signup" className="pure-menu-link">Signup</Link>
+              <Link to="/login" className="pure-menu-link">Login</Link>
+              <Link to="/" onClick={handleLogout} className="pure-menu-link">Logout</Link>
+            </div>
+          </nav>
+
         <SidebarIcon 
         isOpen={isOpen}
         toggleSidebar={toggleSidebar} 
         />
         </>
       )
-    }
-
-  
+    } 
 }
 
 export default Nav

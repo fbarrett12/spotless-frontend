@@ -29,13 +29,13 @@ code {
   background: rgb(72, 133, 190);
   padding: 1.25rem; 
   width: 12.5rem;
-  height: 9.375rem; 
+  /* height: 9.375rem;  */
   margin: 1.25rem;
 }
 
 ul {
   list-style-type: none;
-  height: 26rem;
+  /* height: 26rem; */
   overflow: auto;
 }
 

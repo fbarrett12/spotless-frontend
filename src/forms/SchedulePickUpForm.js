@@ -7,10 +7,13 @@ import userActions from '../redux/actions'
 export default function SchedulePickUpForm(){
     const currentUser = useSelector(state => state.user)
     const laundromat = useSelector(state => state.selectedLaundromat)
+    console.log(laundromat)
 
     const formInfo = {
         user_id: currentUser.id,
-        provider_id: laundromat.id
+        provider_id: laundromat.id,
+        provider_name: laundromat.name,
+        customer_name: currentUser.name
     }
 
     const dispatch = useDispatch()
@@ -55,6 +58,7 @@ export default function SchedulePickUpForm(){
         <button 
         className="button-success pure-button"
         onClick={handleClick}
+        style={{'border-radius': '16px'}}
         >
              Complete <FaWpforms />
         </button>

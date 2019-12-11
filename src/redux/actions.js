@@ -43,7 +43,6 @@ const getLaundromats = () => dispatch => {
   fetch("http://localhost:3000/providers")
   .then(res => res.json())
   .then((response) => {
-    console.log(response)
     dispatch(setLaundromats(response.data))
   })
 }
@@ -115,7 +114,6 @@ const logoutUser = () => dispatch => {
 }
 
 const setLoadToDB = formInfo => dispatch => {
-  debugger
   const config = {
     method: 'POST',
     headers: {
@@ -129,6 +127,8 @@ const setLoadToDB = formInfo => dispatch => {
     dispatch(createLoad(data))
   })
 }
+
+
 
 export default {
   newUserToDB,

@@ -21,15 +21,15 @@ const ServiceProviderCmp = (props) => {
 
     return (
         <div className='laundry-list'>
-           <div>
+           <div style={{'margin-bottom': '16px'}}>
                 {laundromat.name}
             </div>
-            <div>
+            <div style={{'margin-bottom': '16px'}}>
                 {laundromat.address}
             </div>
             <div>
-            <button className="pure-button" onClick={handleClick} >
-                <FaRegCalendarCheck />
+            <button className="pure-button" onClick={handleClick} style={{'border-radius': '16px'}}>
+                <FaRegCalendarCheck style={{'margin-right': '8px'}}/>
                 Schedule Pick Up
             </button>
             </div>
